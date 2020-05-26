@@ -1,0 +1,109 @@
+CREATE DATABASE Minions
+
+CREATE TABLE Minions(	
+	Id int PRIMARY KEY NOT NULL,
+	[Name] NVARCHAR(50) NOT NULL,
+	Age TINYINT 
+)
+
+CREATE TABLE Towns (
+   Id INT PRIMARY KEY NOT NULL,
+   [Name] NVARCHAR(50) NOT NULL
+)
+
+
+ALTER TABLE Minions 
+ADD TownId INT FOREIGN KEY REFERENCES Towns(Id)
+
+INSERT INTO Towns(Id,[Name])
+	VALUES
+	(1,'Sofia'),
+	(2,'Plovdiv'),
+	(3,'Varna')
+
+	
+INSERT INTO Minions(Id,[Name],Age,TownId)
+	VALUES
+	(1,'Kevin',22,1),
+	(2,'Bob',15,3),
+	(3,'Steward',NULL,2)
+
+
+TRUNCATE TABLE dbo.Minions
+
+DROP TABLE dbo.Minions
+DROP TABLE dbo.Towns
+
+ DROP TABLE People
+
+ CREATE TABLE People(
+		Id int PRIMARY KEY IDENTITY NOT NULL,
+		[Name] nvarchar(200) NOT NULL,
+		Picture varbinary(MAX)
+	CHECK(DATALENGTH(Picture)<=2048),
+		Height decimal(3,2),
+		[Weight] decimal (3,2),
+		Gender  char(1) NOT NULL,
+		Birthdate date NOT NULL,
+		Biography nvarchar(max)
+		)
+	
+INSERT INTO dbo.People
+(
+   [Name],Picture,Height,[Weight],Gender,Birthdate,Biography
+)
+VALUES
+('John',null,null,null,'m','12.03.1993','Asdasdasda'),
+('Por',null,null,null,'m','12.03.1993','Adasda'),
+('For',null,null,null,'m','12.03.1993','Asdasda'),
+('Mor',null,null,null,'m','12.03.1993','Asdasdas'),
+('End',null,null,null,'m','12.03.1993','Asdasdafas')
+
+CREATE TABLE Users(
+	Id bigint PRIMARY KEY IDENTITY NOT NULL,
+	Username varchar(30) UNIQUE NOT NULL,
+	[Password] varchar(26) NOT NULL,
+	ProfilePicture varbinary(MAX)
+	CHECK(DATALENGTH(ProfilePicture)<=900*1024),
+	LastLoginTime datetime2 NOT NULL,
+	IsDeleted bit NOT NULL
+
+)
+
+INSERT INTO Users(Username,[Password],LastLoginTime,IsDeleted)
+VALUES
+('Gosho','12314232','12.10.2019',0),
+('Pesho','12314232','12.11.2019',1),
+('Tosho','12314232123','12.10.2019',0),
+('Misho','12314232123','12.01.2019',0),
+('Tisho','12314232123','12.03.2018',1)
+
+SELECT * FROM dbo.Users 
+
+
+ALTER TABLE dbo.Users
+DROP CONSTRAINT [PK__Users__3214EC07E769D03F]
+
+ALTER TABLE dbo.Users
+ADD CONSTRAINT PK__Users__CompositeIdUsername
+PRIMARY KEY(Id,Username)
+
+
+ALTER TABLE dbo.Users
+ADD CONSTRAINT CK__Users_PasswordLenght
+CHECK(LEN([Password])>=5)
+
+ALTER TABLE dbo.Users
+ADD CONSTRAINT DF_Users_LastLoginTime
+DEFAULT GETDATE() FOR LastLoginTime
+
+ALTER TABLE dbo.Users
+DROP CONSTRAINT PK__Users__CompositeIdUsername
+
+ALTER TABLE dbo.Users
+ADD CONSTRAINT PK_USERS_Id
+PRIMARY KEY (Id)
+
+ALTER TABLE dbo.Users
+ADD CONSTRAINT CK_Users_Username
+CHECK (LEN(Username)>=3)

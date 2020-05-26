@@ -1,0 +1,57 @@
+ CREATE DATABASE Movies 
+ USE Movies 
+
+ CREATE TABLE Directors
+		(Id int PRIMARY KEY IDENTITY,
+		 DirectorName nvarchar(50) NOT NULL,
+		 Notes nvarchar(Max),)
+ 
+ CREATE TABLE Genres
+		(Id int PRIMARY KEY IDENTITY,
+		 GenreName nvarchar(20) NOT NULL,
+		 Notes nvarchar(Max),)
+
+ CREATE TABLE Categories
+		(Id int PRIMARY KEY IDENTITY,
+		 CategoryName nvarchar(30) NOT NULL,
+		 Notes nvarchar(Max),)
+
+CREATE TABLE Movies 
+	   (Id int PRIMARY KEY IDENTITY,
+	    Title nvarchar(60) NOT NULL,
+		DirectorId int FOREIGN KEY REFERENCES dbo.Directors(Id),
+		CopyrightYear int,
+		[Length] timestamp, 
+		GenereId int FOREIGN KEY REFERENCES dbo.Genres(Id),
+		CategoryId int FOREIGN KEY REFERENCES dbo.Categories(Id),
+		Rating decimal(2,1),
+		Notes nvarchar(MAX))
+
+
+INSERT INTO Directors(dbo.Directors.DirectorName)
+VALUES('JohnVon'),
+      ('Spilberg'),
+      ('Sulivan'),
+      ('Neichev'),
+      ('Copola')
+
+INSERT INTO Genres(dbo.Genres.GenreName)
+VALUES  ('Action'),
+		('Comedy'),
+		('Drama'),
+		('SciFy'),
+		('Fiction')
+
+INSERT INTO Categories(dbo.Categories.CategoryName)
+VALUES  ('New'),
+		('Old'),
+		('VeryOld'),
+		('60s'),
+		('70s')
+
+INSERT INTO Movies(dbo.Movies.Title)
+VALUES  ('Gimme'),
+		('a'),
+		('Break'),
+		('damn '),
+		('it')
