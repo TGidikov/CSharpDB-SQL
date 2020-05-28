@@ -1,3 +1,3 @@
 # CSharpDB
 SQL
-This is small part of the queries I am currentlu doing while exploring SQL .
+This is  part of the queries I am currently doing while exploring SQL .
