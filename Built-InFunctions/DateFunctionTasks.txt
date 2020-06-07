@@ -1,0 +1,40 @@
+Part IV – Date Functions Queries
+
+Problem 18.	 Orders Table
+You are given a table Orders(Id, ProductName, OrderDate) filled with data. Consider that the payment for that order must be accomplished within 3 days after the order date. Also the delivery date is up to 1 month. Write a query to show each product’s name, order date, pay and deliver due dates. 
+Original Table
+Id	ProductName	OrderDate
+1	Butter	2016-09-19 00:00:00.000
+2	Milk	2016-09-30 00:00:00.000
+3	Cheese	2016-09-04 00:00:00.000
+4	Bread	2015-12-20 00:00:00.000
+5	Tomatoes	2015-12-30 00:00:00.000
+…	…	…
+Output
+ProductName	OrderDate	Pay Due	Deliver Due
+Butter	2016-09-19 00:00:00.000	2016-09-22 00:00:00.000	2016-10-19 00:00:00.000
+Milk	2016-09-30 00:00:00.000	2016-10-03 00:00:00.000	2016-10-30 00:00:00.000
+Cheese	2016-09-04 00:00:00.000	2016-09-07 00:00:00.000	2016-10-04 00:00:00.000
+Bread	2015-12-20 00:00:00.000	2015-12-23 00:00:00.000	2016-01-20 00:00:00.000
+Tomatoes	2015-12-30 00:00:00.000	2016-01-02 00:00:00.000	2016-01-30 00:00:00.000
+…	…	…	…
+
+Problem 19.	 People Table
+Create a table People(Id, Name, Birthdate). Write a query to find age in years, months, days and minutes for each person for the current time of executing the query.
+
+
+Original Table
+Id	Name	Birthdate
+1	Victor	2000-12-07 00:00:00.000
+2	Steven	1992-09-10 00:00:00.000
+3	Stephen	1910-09-19 00:00:00.000
+4	John	2010-01-06 00:00:00.000
+…	…	…
+Example Output
+Name	Age in Years	Age in Months	Age in Days	Age in Minutes
+Victor	16	189	5754	8286787
+Steven	24	288	8764	12621187
+Stephen	106	1272	38706	55737667
+John	6	80	2437	3510307
+…	…	…	…	…
+
