@@ -1,0 +1,40 @@
+Part III – Queries for Diablo Database
+
+Problem 14.	Games from 2011 and 2012 year
+Find the top 50 games ordered by start date, then by name of the game. Display only games from 2011 and 2012 year. Display start date in the format "yyyy-MM-dd". 
+Example
+Name	Start
+Rose Royalty	2011-01-05
+London	2011-01-13
+Broadway	2011-01-16
+…	…
+
+Problem 15.	 User Email Providers
+Find all users along with information about their email providers. Display the username and email provider. Sort the results by email provider alphabetically, then by username. 
+Example
+Username	Email Provider
+Pesho	abv.bg
+monoxidecos	astonrasuna.com
+bashsassafras	balibless
+…	…
+
+Problem 16.	 Get Users with IPAdress Like Pattern
+Find all users along with their IP addresses sorted by username alphabetically. Display only rows that IP address matches the pattern: "***.1^.^.***". 
+Legend: * - one symbol, ^ - one or more symbols
+Example
+Username	IP Address
+bindbawdy	192.157.20.222
+evolvingimportant	223.175.227.173
+inguinalself	255.111.250.207
+…	…
+
+Problem 17.	 Show All Games with Duration and Part of the Day
+Find all games with part of the day and duration sorted by game name alphabetically then by duration (alphabetically, not by the timespan) and part of the day (all ascending). Parts of the day should be Morning (time is >= 0 and < 12), Afternoon (time is >= 12 and < 18), Evening (time is >= 18 and < 24). Duration should be Extra Short (smaller or equal to 3), Short (between 4 and 6 including), Long (greater than 6) and Extra Long (without duration). 
+Example
+Game	Part of the Day	Duration
+Ablajeck	Morning	Long
+Ablajeck	Afternoon	Short
+Abregado Rae	Afternoon	Long
+Abrion	Morning	Extra Short
+Acaeria	Evening	Long
+…	…	…
