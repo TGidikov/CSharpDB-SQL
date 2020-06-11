@@ -1,4 +1,4 @@
-# CSharpDB
+# MS SQL
 SQL
 This is  part of the queries I am currently doing while exploring SQL .
 For most of it I have used three main databases:
