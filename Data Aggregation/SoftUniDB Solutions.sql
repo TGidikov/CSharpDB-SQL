@@ -61,15 +61,3 @@ WHERE e1.Salary> (SELECT
 				 WHERE e2.DepartmentID=e1.DepartmentID
                  GROUP BY DepartmentID)  
 ORDER BY DepartmentID
-
-
-
-
-
-
-
-
-
-
-
-
