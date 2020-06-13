@@ -1,0 +1,79 @@
+Exercises: Functions and Stored Procedures
+This document defines the exercise assignments for the "Databases Basics - MSSQL" course @ Software University. 
+
+1.	Queries for SoftUni Database
+
+1.	Employees with Salary Above 35000
+Create stored procedure usp_GetEmployeesSalaryAbove35000 that returns all employees’ first and last names for whose salary is above 35000. 
+Example
+First Name	Last Name
+Roberto	Tamburello
+David	Bradley
+Terri	Duffy
+…	…
+
+2.	Employees with Salary Above Number
+Create stored procedure usp_GetEmployeesSalaryAboveNumber that accept a number (of type DECIMAL(18,4)) as parameter and returns all employees’ first and last names whose salary is above or equal to the given number. 
+Example
+Supplied number for that example is 48100.
+First Name	Last Name
+Terri	Duffy
+Jean	Trenary
+Ken	Sanchez
+…	…
+
+3.	Town Names Starting With
+Write a stored procedure  that accept string as parameter and returns all town names starting with that string. 
+Example
+Here is the list of all towns starting with "b".
+Town
+Bellevue
+Bothell
+Bordeaux
+Berlin
+
+4.	Employees from Town
+Write a stored procedure usp_GetEmployeesFromTown that accepts town name as parameter and return the employees’ first and last name that live in the given town. 
+Example
+Here it is a list of employees living in Sofia.
+First Name	Last Name
+Svetlin	Nakov
+Martin	Kulov
+George	Denchev
+
+5.	Salary Level Function
+Write a function ufn_GetSalaryLevel(@salary )) that receives salary of an employee and returns the level of the salary.
+•	If salary is < 30000 return "Low"
+•	If salary is between 30000 and 50000 (inclusive) return "Average"
+•	If salary is > 50000 return "High"
+Example
+Salary	Salary Level
+13500.00	Low
+43300.00	Average
+125500.00	High
+
+6.	Employees by Salary Level
+Write a stored procedure usp_EmployeesBySalaryLevel that receive as parameter level of salary (low, average or high) and print the names of all employees that have given level of salary. You should use the function - "dbo.ufn_GetSalaryLevel(@Salary) ", which was part of the previous task, inside your "CREATE PROCEDURE …" query.
+Example
+Here is the list of all employees with high salary.
+First Name	Last Name
+Terri	Duffy
+Jean	Trenary
+Ken	Sanchez
+…	…
+
+7.	Define Function
+Define a function ufn_IsWordComprised(@setOfLetters, @word) that returns true or false depending on that if the word is a comprised of the given set of letters. 
+Example
+SetOfLetters	Word	Result
+oistmiahf	Sofia	1
+oistmiahf	halves	0
+bobr	Rob	1
+pppp	Guy	0
+
+
+8.	* Delete Employees and Departments
+Write a procedure with the name usp_DeleteEmployeesFromDepartment (@departmentId INT) which deletes all Employees from a given department. Delete these departments from the Departments table too. Finally SELECT the number of employees from the given department. If the delete statements are correct the select query should return 0.
+After completing that exercise restore your database to revert all changes.
+Hint:
+You may set ManagerID column in Departments table to nullable (using query "ALTER TABLE …").
