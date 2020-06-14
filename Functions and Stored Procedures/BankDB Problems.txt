@@ -1,0 +1,38 @@
+2.Queries for Bank Database
+
+09.Find Full Name
+You are given a database schema with tables AccountHolders(Id (PK), FirstName, LastName, SSN) and Accounts(Id (PK), AccountHolderId (FK), Balance).  Write a stored procedure usp_GetHoldersFullName that selects the full names of all people. 
+Example
+Full Name
+Susan Cane
+Kim Novac
+Jimmy Henderson
+…
+
+10.People with Balance Higher Than
+Your task is to create a stored procedure usp_GetHoldersWithBalanceHigherThan that accepts a number as a parameter and returns all people who have more money in total of all their accounts than the supplied number. Order them by first name, then by last name
+Example
+First Name	Last Name
+Monika	Miteva
+Petar	Kirilov
+…	…
+
+11.Future Value Function
+Your task is to create a function ufn_CalculateFutureValue that accepts as parameters – sum (decimal), yearly interest rate (float) and number of years(int). It should calculate and return the future value of the initial sum rounded to the fourth digit after the decimal delimiter. Using the following formula:
+FV=I×(〖(1+R)〗^T)
+	I – Initial sum
+	R – Yearly interest rate
+	T – Number of years
+Example
+Input	Output
+Initial sum: 1000
+Yearly Interest rate: 10%
+years: 5
+ufn_CalculateFutureValue(1000, 0.1, 5)	1610.5100
+
+12.Calculating Interest
+Your task is to create a stored procedure usp_CalculateFutureValueForAccount that uses the function from the previous problem to give an interest to a person's account for 5 years, along with information about his/her account id, first name, last name and current balance as it is shown in the example below. It should take the AccountId and the interest rate as parameters. Again you are provided with “dbo.ufn_CalculateFutureValue” function which was part of the previous task.
+Example
+Account Id	First Name	Last Name	Current Balance	Balance in 5 years
+1	Susan	Cane	123.12	198.2860
+*Note: for the example above interest rate is 0.1
