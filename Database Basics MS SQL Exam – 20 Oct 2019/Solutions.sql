@@ -116,7 +116,7 @@ LEFT JOIN dbo.Users u ON r.UserId = u.Id
 GROUP BY e.FirstName , e.LastName
 ORDER BY COUNT(r.UserId) DESC , [Full Name]
 
---10.
+--10.Full Info
 SELECT ISNULL((e.FirstName+ ' '+ e.LastName),'None') AS Employee,
        ISNULL(d.[Name],'None') AS Department,
        ISNULL(c.[Name],'None') AS Category,
@@ -132,7 +132,7 @@ FROM Reports AS r
     LEFT JOIN Departments AS d ON e.DepartmentId = d.Id
 ORDER BY e.FirstName DESC, e.LastName DESC, Department, Category, [Description], OpenDate, [Status], [User]
 
---PROBLEM 11:
+--11.Hours to Complete
 CREATE FUNCTION udf_HoursToComplete
 (@StartDate DATETIME2, @EndDate DATETIME2) RETURNS INT
 AS 
@@ -148,7 +148,7 @@ BEGIN
 	 
 END
 
---PROBLEM 12:
+12.Assign Employee
 CREATE PROC usp_AssignEmployeeToReport
 (@EmployeeId int, @ReportId int)
 AS 
